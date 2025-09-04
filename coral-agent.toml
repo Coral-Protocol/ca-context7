@@ -1,0 +1,18 @@
+[agent]
+name = "context"
+version = "0.1.0"
+description = "An agent capable of accessing up to date documentation for many software tools and libraries"
+
+[options]
+LIBRARY_ID = { type = "string", description = "The context7 library ID to get documentation for.  E.g websites/coralprotocol" }
+OPENROUTER_API_KEY = { type = "string", description = "The OpenRouter API key to use" }
+SYSTEM_PROMPT_SUFFIX = { type = "string", description = "Optional suffix to include in the system prompt", default = "" }
+LOOP_PROMPT_SUFFIX = { type = "string", description = "Optional suffix to include in the loop prompt", default = "" }
+TEMPERATURE = { type = "number", description = "Temperature hyperparameter", default = 0.20 }
+MAX_TOKENS = { type = "string", description = "Maximum number of tokens to use in one completion request", default = "8192" }
+ENABLE_TELEMETRY = { type = "string", description = "Maximum number of tokens to use in one completion request", default = "false" }
+LOOP_DELAY = { type = "string", description = "The delay to use between loop iterations.  Format is https://docs.rs/humantime/2.2.0/humantime/", default = "1s" }
+LOOP_MAX_REPS = { type = "string", description = "Maximum number of loop repitions to make before the agent exits", default = "512" }
+
+[runtimes.docker]
+image = "coralprotocol/ca-context7"

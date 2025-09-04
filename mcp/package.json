@@ -1,0 +1,15 @@
+{
+  "name": "mcp",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "run": "node src/index.js"
+  },
+  "dependencies": {
+    "@upstash/context7-mcp": "^1.0.16"
+  }
+}
