@@ -1,5 +1,5 @@
 [agent]
-name = "context7"
+name = "ca-context7"
 version = "0.1.0"
 description = "An agent capable of accessing up to date documentation for many software tools and libraries"
 
