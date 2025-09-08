@@ -280,7 +280,9 @@ dependencies = [
 
 [[package]]
 name = "coral-rs"
-version = "0.1.2"
+version = "0.1.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1123c3a1948d331f40aaf34a5558bae70278a9f24b267df8f59e1faf5be2f25f"
 dependencies = [
  "futures",
  "prettyplease",

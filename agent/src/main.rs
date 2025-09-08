@@ -1,6 +1,7 @@
 use clap::Parser;
 use coral_rs::agent::Agent;
 use coral_rs::agent_loop::AgentLoop;
+use coral_rs::api::generated::types::McpToolName;
 use coral_rs::completion_evaluated_prompt::CompletionEvaluatedPrompt;
 use coral_rs::mcp_server::McpConnectionBuilder;
 use coral_rs::repeating_prompt_stream::repeating_prompt_stream;
@@ -82,9 +83,9 @@ async fn main() {
 
     let mut evaluating_prompt = CompletionEvaluatedPrompt::new()
         .string(format!("1. If you haven't already, call the get-library-docs tool with context7CompatibleLibraryID = {}", config.library_id))
-        .string("2. Repeatedly call coral_wait_for_mentions tool until it returns messages")
+        .string(format!("2. Repeatedly call {} tool until it returns messages", McpToolName::CoralWaitForMentions))
         .string("3. Analyse the messages returned, make note of the request and thread ID")
-        .string("4. Using the returned documentation, quoting where possible, respond (using the coral_send_message tool) to any questions returned by the coral_wait_for_mentions tool");
+        .string(format!("4. Using the returned documentation, quoting where possible, respond (using the {} tool) to any questions returned by the {} tool", McpToolName::CoralSendMessage, McpToolName::CoralWaitForMentions));
 
     if let Some(loop_prompt_suffix) = config.loop_prompt_suffix {
         evaluating_prompt = evaluating_prompt.string(loop_prompt_suffix);
